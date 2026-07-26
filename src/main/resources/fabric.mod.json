@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "id": "auto-shield",
+  "version": "${version}",
+  "name": "Auto-Shield",
+  "description": "Client-side automated shield defense mod for Minecraft 1.21.1",
+  "authors": ["ikn0w999zy-sudo"],
+  "contact": {},
+  "license": "MIT",
+  "environment": "client",
+  "entrypoints": {
+    "main": ["com.autoshield.AutoShieldMod"]
+  },
+  "mixins": ["auto-shield.mixins.json"],
+  "depends": {
+    "fabricloader": ">=0.16.0",
+    "minecraft": "1.21.1",
+    "java": ">=21"
+  }
+}
