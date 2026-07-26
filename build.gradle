@@ -24,9 +24,10 @@ dependencies {
 }
 
 processResources {
-	filterscan 'fabric.mod.json'
-	filterscan 'fabric.mod.json' {
-		expand 'version': project.version
+	inputs.property "version", project.version
+
+	filesMatching("fabric.mod.json") {
+		expand "version": project.version
 	}
 }
 
@@ -34,6 +35,8 @@ tasks.withType(JavaCompile).configureEach {
 	it.options.release = 21
 }
 
-jars {
-	archiveName = "${archivesBaseName}-${version}.jar"
+jar {
+	from("LICENSE") {
+		rename { "${it}_${project.archivesBaseName}" }
+	}
 }
